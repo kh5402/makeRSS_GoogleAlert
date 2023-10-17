@@ -19,7 +19,31 @@ def main():
             'xml': 'feed_GoogleAlert_Kanagawa.xml',
             'include_phrase': ['金川', '紗耶'],
             'exclude_phrase': []
-        }
+        },
+        {
+            'url': 'https://www.google.co.jp/alerts/feeds/04259142089098243371/18167890889861203433',
+            'xml': 'feed_GoogleAlert_Nogizaka.xml',
+            'include_phrase': ['乃木坂'],
+            'exclude_phrase': []
+        },
+        {
+            'url': 'https://www.google.co.jp/alerts/feeds/04259142089098243371/11085663386815937188',
+            'xml': 'feed_GoogleAlert_Kosaka.xml',
+            'include_phrase': ['小坂', '奈緒'],
+            'exclude_phrase': []
+        },
+        {
+            'url': 'https://www.google.co.jp/alerts/feeds/04259142089098243371/294717840653085002',
+            'xml': 'feed_GoogleAlert_Kanemura.xml',
+            'include_phrase': ['金村', '美玖'],
+            'exclude_phrase': []
+        },
+        {
+            'url': 'https://www.google.co.jp/alerts/feeds/04259142089098243371/11495865900788615649',
+            'xml': 'feed_GoogleAlert_Hinatazaka.xml',
+            'include_phrase': ['日向坂'],
+            'exclude_phrase': []
+        },
     ]
     
     for feed in feeds:
@@ -50,6 +74,7 @@ def main():
         article_pattern = re.compile(r'<entry[^>]*>([\s\S]*?)<\/entry>')
 
         for match in article_pattern.findall(html_content):
+            print(f"確認用：matchの内容：{match}")  # これでmatchの内容が出力されるよ
 
             link_search = re.search(r'<link href="(.*?)"/>', match)
             if link_search:
