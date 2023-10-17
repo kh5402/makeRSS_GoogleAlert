@@ -19,7 +19,9 @@ jobs:
       with:
         python-version: '3.x'
 
-
+    - name: Install Dependencies
+      run: pip install requests
+    
     - name: Run makeRSS_GoogleNews.py Script
       run: python3 makeRSS_GoogleAlert.py  # Pythonファイルのパスを適切に設定してね
     
