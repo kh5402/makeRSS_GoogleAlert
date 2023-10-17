@@ -22,7 +22,7 @@ jobs:
     - name: Install Dependencies
       run: pip install requests
     
-    - name: Run makeRSS_GoogleNews.py Script
+    - name: Run makeRSS Script
       run: python3 makeRSS_GoogleAlert.py  # Pythonファイルのパスを適切に設定してね
     
     - name: Commit and push changes
