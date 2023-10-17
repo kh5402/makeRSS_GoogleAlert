@@ -84,7 +84,8 @@ def main():
                 #continue
     
             title = re.search(r'<title[^>]*>(.*?)<\/title>', match).group(1)
-            link = re.search(r'<link href="(.*?)"/>', match).group(1)
+            #link = re.search(r'<link href="(.*?)"/>', match).group(1)
+            link = re.search(r'<link href="(.*?)"', match).group(1)
             date_str = re.search(r'<published>(.*?)<\/published>', match).group(1)
             date = datetime.fromisoformat(date_str.replace("Z", "+00:00")).strftime("%Y.%m.%d %H:%M")
 
