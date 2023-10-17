@@ -53,7 +53,7 @@ def main():
         exclude_phrase = feed['exclude_phrase']  # ここでexclude_phraseを追加したよ
 
         # 既存のRSSフィードを読む
-        existing_s = set()
+        existing_links = set()
         if os.path.exists(xml_file):
             tree = ET.parse(xml_file)
             root = tree.getroot()
