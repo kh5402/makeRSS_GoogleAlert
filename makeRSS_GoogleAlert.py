@@ -29,7 +29,7 @@ def main():
         exclude_phrase = feed['exclude_phrase']  # ここでexclude_phraseを追加したよ
 
         # 既存のRSSフィードを読む
-        existing_links = set()
+        existing_s = set()
         if os.path.exists(xml_file):
             tree = ET.parse(xml_file)
             root = tree.getroot()
@@ -54,7 +54,13 @@ def main():
             link = re.search(r'<link href="(.*?)"/>', match).group(1)
             date_str = re.search(r'<published>(.*?)<\/published>', match).group(1)
             date = datetime.fromisoformat(date_str.replace("Z", "+00:00")).strftime("%Y.%m.%d %H:%M")
-            
+
+            # GoogleアラートのURLの場合、urlパラメータから素のURLを取得
+            if "alerts" in url:
+                url_match = re.search(r'url=([^&]*)', link)
+                if url_match:
+                    link = url_match.group(1)
+        
             # タイトルのフィルタリング
             if any(phrase in title for phrase in include_phrase) and not any(phrase in title for phrase in exclude_phrase):
                 
