@@ -50,6 +50,14 @@ def main():
         article_pattern = re.compile(r'<entry[^>]*>([\s\S]*?)<\/entry>')
 
         for match in article_pattern.findall(html_content):
+
+            link_search = re.search(r'<link href="(.*?)"/>', match)
+            if link_search:
+                link = link_search.group(1)
+            else:
+                print(f"リンクが見つからないよ😢 スキップするね！ matchの内容: {match}")
+                #continue
+    
             title = re.search(r'<title[^>]*>(.*?)<\/title>', match).group(1)
             link = re.search(r'<link href="(.*?)"/>', match).group(1)
             date_str = re.search(r'<published>(.*?)<\/published>', match).group(1)
