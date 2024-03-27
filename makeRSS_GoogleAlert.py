@@ -44,6 +44,12 @@ def main():
             'include_phrase': ['日向坂'],
             'exclude_phrase': []
         },
+        {
+            'url': 'https://www.google.co.jp/alerts/feeds/04259142089098243371/14250068152885876981',
+            'xml': 'feed_GoogleAlert_BPaaS.xml',
+            'include_phrase': [],
+            'exclude_phrase': []
+        },
     ]
     
     for feed in feeds:
