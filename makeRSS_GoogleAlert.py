@@ -50,6 +50,18 @@ def main():
             'include_phrase': [],
             'exclude_phrase': []
         },
+        {
+            'url': 'https://www.google.co.jp/alerts/feeds/04259142089098243371/8318990557557132593',
+            'xml': 'feed_GoogleAlert_BPO.xml',
+            'include_phrase': [],
+            'exclude_phrase': []
+        },
+        {
+            'url': 'https://www.google.co.jp/alerts/feeds/04259142089098243371/8318990557557130748',
+            'xml': 'feed_GoogleAlert_BPMN.xml',
+            'include_phrase': [],
+            'exclude_phrase': []
+        },
     ]
     
     for feed in feeds:
